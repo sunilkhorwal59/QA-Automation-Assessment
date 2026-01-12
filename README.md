@@ -24,7 +24,7 @@ https://demoqa.com/
 - Logout and validate redirection to `/login`
 
 ## How to Run
-- Navigate to the UI folder: cd ui-automation
+- Navigate to the cd ui-automation
 - Install dependencies: npm install
 - Execute the test: npx playwright test tests/bookstore.spec.js
 
@@ -45,7 +45,9 @@ https://reqres.in
 3. Update the user name and validate the updated response
 
 # How to Run
-- npx playwright test reqres-api.spec.js
+- Navigate to the api-automation
+- Install dependencies: npm install
+- Execute the test: npx playwright test tests/reqres-api.spec.js
 
 ## Notes
 - Reqres is a mock API and does not persist created users.
