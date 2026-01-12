@@ -14,7 +14,7 @@ https://demoqa.com/
 ## Test data 
 - Test data stored in json file
 
-## Test Scenarios Covered
+## Test Scenarios Automated
 - Navigate to Book Store Application
 - Login with existing user
 - Validate username and logout button
@@ -29,19 +29,31 @@ https://demoqa.com/
 - Execute the test: npx playwright test tests/bookstore.spec.js
 
 
-# ReqRes - API Automation 
-Application URL
-https://reqres.in/
+# ReqRes - API Automation using Playwright
 
-Tech Stack
-- Postman
+## API Details
+Base URL:  
+https://reqres.in
 
-## Test Scenarios Covered
-- POST Create New User: Validates successful user creation (Status 201)
-- GET User Details: Fetches user data using variable chaining (Status 200)
-- PUT Update User: Updates user information and validates the response (Status 200)
+## Tech Stack
+- Playwright
+- JavaScript (Node.js)
+
+## Test Scenarios Automated
+1. Create a user and validate the HTTP status code
+2. Get user details and validate user ID
+3. Update the user name and validate the updated response
 
 # How to Run
-- Import the JSON file from api-automation/ReqRes_Assignment.json into Postman.
-- Open the Collection Runner.
-- Click Run ReqRes_Assignment (No environment selection is required as all variables are self-contained within the collection).
+- npx playwright test reqres-api.spec.js
+
+## Notes
+- Reqres is a mock API and does not persist created users.
+- For dependent requests (GET and PUT), a static user ID is used to ensure consistent results.
+- Tests are executed sequentially to maintain request order.
+
+## Viewing Test Results
+Playwright generates an HTML report after execution.
+
+## How to view reports
+- npx playwright show-report
