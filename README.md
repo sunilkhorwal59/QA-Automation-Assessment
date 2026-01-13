@@ -45,14 +45,16 @@ https://reqres.in
 3. Update the user name and validate the updated response
 
 # How to Run
-- Navigate to the api-automation
+- Navigate to the API-automation
 - Install dependencies: npm install
 - Execute the test: npx playwright test tests/reqres-api.spec.js
 
 ## Notes
 - Reqres is a mock API and does not persist created users.
-- For dependent requests (GET and PUT), a static user ID is used to ensure consistent results.
-- Tests are executed sequentially to maintain request order.
+- The Create User API returns a generated user ID.
+- Due to API behavior, the generated ID cannot be used to fetch user details using GET.
+- The generated ID is used for the Update User API.
+- A static user ID is used for the Get User API to validate the response.
 
 ## Viewing Test Results
 Playwright generates an HTML report after execution.
