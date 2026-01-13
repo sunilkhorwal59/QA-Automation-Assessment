@@ -1,5 +1,5 @@
 # QA-Automation-Assessment
-UI automation with Playwright and API automation with Postman for ReqRes
+UI automation & API automation with Playwright 
 
 # DemoQA Book Store Application – UI Automation
 
