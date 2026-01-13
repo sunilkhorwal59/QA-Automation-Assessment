@@ -6,7 +6,7 @@ const BEARER_TOKEN =
 test.describe.serial('Reqres API Automation', () => {
 
   let apiContext;
-  let userId;
+  let createdUserId;
 
   test.beforeAll(async () => {
     apiContext = await request.newContext({
@@ -29,24 +29,23 @@ test.describe.serial('Reqres API Automation', () => {
     expect(response.status()).toBe(201);
 
     const body = await response.json();
-    console.log(body);
+    console.log('Create User Response:', body);
 
-    // Reqres workaround (same as Postman)
-    userId = 2;
+    createdUserId = body.id;
   });
 
-  test('Get user', async () => {
-    const response = await apiContext.get(`/api/users/${userId}`);
+  test('Get user details', async () => {
+    const response = await apiContext.get('/api/users/2');
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    console.log(body);
+    console.log('Get User Response:', body);
 
-    expect(body.data.id).toBe(userId);
+    expect(body.data.id).toBe(2);
   });
 
-  test('Update user', async () => {
-    const response = await apiContext.put(`/api/users/${userId}`, {
+  test('Update created user', async () => {
+    const response = await apiContext.put(`/api/users/${createdUserId}`, {
       data: {
         name: 'Sunil Updated',
         job: 'Lead QA Engineer'
@@ -56,7 +55,7 @@ test.describe.serial('Reqres API Automation', () => {
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    console.log(body);
+    console.log('Update User Response:', body);
 
     expect(body.name).toBe('Sunil Updated');
   });
